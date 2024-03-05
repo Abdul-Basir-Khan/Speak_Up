@@ -20,7 +20,15 @@ class _vocTestscreenState extends State<vocTestscreen> {
   final key = GlobalKey<ScaffoldState>();
   DateTime? startDate;
   DateTime? endDate;
-  bool _isDefinition=false;
+  bool _isTrans=false;
+  bool _isTransOne=false;
+  bool _isTransTwo=false;
+
+  bool _isDefOne=false;
+  bool _isDefTwo=false;
+  bool _isDefThree=false;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +58,6 @@ class _vocTestscreenState extends State<vocTestscreen> {
               child:   Column(
                 crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-      
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -90,6 +97,8 @@ class _vocTestscreenState extends State<vocTestscreen> {
                       Expanded(
                         child: GestureDetector(
                           onTap:(){
+                            _isTransOne=!_isTransOne;
+                            _isDefOne=!_isDefOne;
                             showCustomDateRangePicker(
                               context,
                               dismissible: true,
@@ -213,38 +222,48 @@ class _vocTestscreenState extends State<vocTestscreen> {
                           const SizedBox(
                             height: 50,
                           ),
-                          Row(
-                            children: [
-                              const Image(image: AssetImage("assets/icons/play.png")),
-                              const SizedBox(
-                                width: 13,
-                              ),
-                              InkWell(
-                                onTap: (){
-      
-                                },
-                                child: const ReusableText(
-                                  title: 'parental',
-                                  size: 19,
-                                  weight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
+
+                          _isTrans==true && _isTransOne==true?
+
+                         FutureBuilder(future: Future.delayed(Duration(seconds: 5)), builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { return  Row(
+                           children: [
+                             Image(image: AssetImage("assets/icons/play.png")),
+                             SizedBox(
+                               width: 13,
+                             ),
+                             InkWell(
+                               onTap: () {
+                                 // Handle onTap
+                               },
+                               child: ReusableText(
+                                 title: 'parental',
+                                 size: 19,
+                                 weight: FontWeight.w500,
+                               ),
+                             ),
+                           ],
+                         ); },  )
+
+                              :SizedBox(),
+
+
                           const SizedBox(height: 10,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Row(
-                                children: [
-                                  SizedBox(
-                                    width: 45,
-                                  ),
-                                  ReusableText(
-                                    title: "qabul etmak",
-                                    size: 16,
-                                  ),
-                                ],
+                             Visibility(
+                               visible: _isTransOne,
+                                child: const Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 45,
+                                    ),
+                                    ReusableText(
+                                      title: "qabul etmak",
+                                      size: 16,
+                                    ),
+                                  ],
+                                ),
                               ),
                               InkWell(
                                 onTap: (){
@@ -274,17 +293,20 @@ class _vocTestscreenState extends State<vocTestscreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Row(
-                                children: [
-                                  SizedBox(
-                                    width: 45,
-                                  ),
-                                  ReusableText(
-                                    title: 'parental',
-                                    size: 19,
-                                    weight: FontWeight.w500,
-                                  ),
-                                ],
+                              Visibility(
+                                visible: _isTrans,
+                                child: const Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 45,
+                                    ),
+                                    ReusableText(
+                                      title: 'parental',
+                                      size: 19,
+                                      weight: FontWeight.w500,
+                                    ),
+                                  ],
+                                ),
                               ),
                               InkWell(
                                 onTap: (){
@@ -339,6 +361,7 @@ class _vocTestscreenState extends State<vocTestscreen> {
                                         color: Colors.grey),
                                     prefixIcon: GestureDetector(
                                         onTap: () {
+                                          _isTrans=!_isTrans;
                                           showModalBottomSheet(
                                             context: context,
                                             builder: (BuildContext context) {
@@ -372,7 +395,6 @@ class _vocTestscreenState extends State<vocTestscreen> {
                         ),
                         const SizedBox(width: 10),
                         InkWell(
-      
                           onTap: () {
                           },
                           child: Container(
@@ -392,11 +414,11 @@ class _vocTestscreenState extends State<vocTestscreen> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 10,),
                 ],
               ),
             )
                 :
-      
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
@@ -408,31 +430,36 @@ class _vocTestscreenState extends State<vocTestscreen> {
                       child: ListView(
                         children: [
                         const SizedBox(height: 50,),
-                        Row(
-                          children: [
-                            const Image(image: AssetImage("assets/icons/play.png")),
-                            const SizedBox(
-                              width: 13,
-                            ),
-                            InkWell(
-                              onTap: (){
-      
-                              },
-                              child: const ReusableText(
-                                title: 'parental',
-                                size: 19,
-                                weight: FontWeight.w500,
+                        Visibility(
+                          visible: _isDefOne,
+                          child: Row(
+                            children: [
+                              const Image(image: AssetImage("assets/icons/play.png")),
+                              const SizedBox(
+                                width: 13,
                               ),
-                            ),
-                          ],
+                              InkWell(
+                                onTap: (){
+
+                                },
+                                child: const ReusableText(
+                                  title: 'parental',
+                                  size: 19,
+                                  weight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 10,),
       
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                            Visibility(
+                              visible: _isDefTwo,
                               child: Container(
+                                width: MediaQuery.sizeOf(context).width*0.70,
                                 padding:const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
                                     border: Border.all(color: AppColor.hintIconColor.withOpacity(0.30))
@@ -447,7 +474,7 @@ class _vocTestscreenState extends State<vocTestscreen> {
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 15,),
+                        Spacer(),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,children: [
                               InkWell(
@@ -502,46 +529,45 @@ class _vocTestscreenState extends State<vocTestscreen> {
                         ),
       
                         const SizedBox(height: 15,),
-                        Row(
+                       _isDefOne==true && _isDefTwo==true?
+                    FutureBuilder(future: Future.delayed(Duration(seconds: 5)), builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) { return    Row(
+                      children: [
+                        Column(
                           children: [
-                            Column(
-                              children: [
-                                Tooltip(
-                                    message: 'Repeat the message',
-                                    child: SvgPicture.asset(
-                                        'assets/svg_icon/ic_outline-refresh.svg')),
-                                const SizedBox(height: 10),
-                                const Image(
-                                    image: AssetImage(
-                                        'assets/images/circle_image.png'))
-                              ],
-                            ),
-                            const SizedBox(width: 15,),
-                            Expanded(
-                              child: Container(
-                                padding:const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: AppColor.hintIconColor.withOpacity(0.30))
-                                ),
-                                child:
-                                const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    ReusableText(
-                                      title: "Here AI will comment user's definition of the word, and present some sample sentence if necessary ",
-                                      size: 16,
-                                    ),
-                                    SizedBox(height: 40,)
-                                  ],
-                                ),
-                              ),
-                            ),
+                            Tooltip(
+                                message: 'Repeat the message',
+                                child: SvgPicture.asset(
+                                    'assets/svg_icon/ic_outline-refresh.svg')),
+                            const SizedBox(height: 10),
+                            const Image(
+                                image: AssetImage(
+                                    'assets/images/circle_image.png'))
                           ],
                         ),
+                        const SizedBox(width: 15,),
+                        Expanded(
+                          child: Container(
+                            padding:const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: AppColor.hintIconColor.withOpacity(0.30))
+                            ),
+                            child:
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                ReusableText(
+                                  title: "Here AI will comment user's definition of the word, and present some sample sentence if necessary ",
+                                  size: 16,
+                                ),
+                                SizedBox(height: 40,)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ); }, ):SizedBox(),
       
                         const SizedBox(height: 10,),
-      
-      
                       ],
                       ),
                     ),
@@ -570,6 +596,7 @@ class _vocTestscreenState extends State<vocTestscreen> {
                                         color: Colors.grey),
                                     prefixIcon: GestureDetector(
                                         onTap: () {
+                                          _isDefTwo=!_isDefTwo;
                                           showModalBottomSheet(
                                             context: context,
                                             builder: (BuildContext context) {

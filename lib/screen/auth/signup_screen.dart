@@ -292,7 +292,6 @@ class _SignupPageState extends State<SignupPage> {
                   else if(value==false){
                     showDialog(context: context, builder: (BuildContext context) { return const DialogForPolicy(); },);
                   }
-
                 },
                 child: Container(
                     decoration: BoxDecoration(

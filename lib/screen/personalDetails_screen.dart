@@ -394,21 +394,40 @@ class _personalDetailsPageState extends State<personalDetailsPage> {
                   ),
                   trailing:
                   SizedBox(
-                    width: 55,
-                    child: FlutterSwitch(
-                      width: 55.0,
-                      height: 25.0,
-                      toggleSize: 12.0,
-                      value:_isValue,
-                      borderRadius: 13.0,
-                      padding: 5.0,
-                      activeColor: AppColor.blackColor,
-                      inactiveColor: AppColor.purpleTextColor,
-                      onToggle: (val) {
-                        setState(() {
-                          _isValue=val;
-                        });
-                      },
+                    width:MediaQuery.sizeOf(context).width*0.40,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Spacer(),
+                        const ReusableText(
+                          title: "On",
+                          color: AppColor.purpleTextColor,
+                          size: 15,
+                        ),
+                        SizedBox(width: 10,),
+                        FlutterSwitch(
+                          width: 55.0,
+                          height: 25.0,
+                          toggleSize: 12.0,
+                          value:_isValue,
+                          borderRadius: 13.0,
+                          padding: 5.0,
+                          activeColor: AppColor.blackColor,
+                          inactiveColor: AppColor.purpleTextColor,
+                          onToggle: (val) {
+                            setState(() {
+                              _isValue=val;
+                            });
+                          },
+                        ),
+                        SizedBox(width: 10,),
+                        const ReusableText(
+                          title: "Off",
+                          color: AppColor.purpleTextColor,
+                          size: 15,
+                        ),
+                      ],
                     ),
                   )
                 ),

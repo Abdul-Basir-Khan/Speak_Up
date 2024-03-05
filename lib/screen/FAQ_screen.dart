@@ -64,11 +64,12 @@ class _FAQPageState extends State<FAQPage> {
                     title: const ReusableText(
                         title: "1.	What are the main features of the app? ",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
                           setState(() {
-                           varibale.questionOne = true;
+                            varibale.questionOne = true;
                             varibale.questionTwo = false;
                             varibale.questionThree = false;
                             varibale.questionFour = false;
@@ -90,13 +91,15 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title:
                             "2.	What sets Speak Up foreign languages conversational app apart from others? ",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -123,13 +126,15 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title:
                             "3. As a foreign language teacher, how can I use the app in my work?",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -156,13 +161,15 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title:
                             "4.	As an A1 level student, how can I improve my speaking skills with the app?",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -189,13 +196,16 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
+
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title:
                             "5.	As A2 - C2 level student, how can I improve my speaking skills with the app?",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -222,13 +232,15 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title:
                             "6.	Why do you strongly recommend using the Lexicon function?",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -255,12 +267,14 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title: "7.	Hints for the Conversation page",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -287,12 +301,14 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title: "8.	Hints for the Vocabulary page",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -319,12 +335,14 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title: "9.	Hints for the VocTest page",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -351,12 +369,14 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title: "10.	Hints for the Glossary page",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -383,13 +403,15 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title:
                             "11.What will happen to my personal Glossary if I cancel my Subscription?",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -416,12 +438,14 @@ class _FAQPageState extends State<FAQPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios,
-                        ))),
+                        ))
+                ),
                 ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: const ReusableText(
                         title: "12.	Can I use the app for free?",
                         size: 15,
+                        color: AppColor.blackColor,
                         weight: FontWeight.w400),
                     trailing: GestureDetector(
                         onTap: () {
@@ -449,40 +473,57 @@ class _FAQPageState extends State<FAQPage> {
                         child: const Icon(
                           Icons.arrow_forward_ios,
                         ))),
-                ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          varibale.questionThirteen = true;
-                          varibale.questionTwo = false;
-                          varibale.questionThree = false;
-                          varibale.questionFour = false;
-                          varibale.questionFive = false;
-                          varibale.questionSix = false;
-                          varibale.questionSeven = false;
-                          varibale.questionEight = false;
-                          varibale.questionNine = false;
-                          varibale.questionTen = false;
-                          varibale.questionEleven = false;
-                          varibale.questionTwelve = false;
-                          varibale.questionOne = false;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const ContactPage()));
-                        });
-                      },
-                      child: const ReusableText(
-                          title: "13. Couldn't find the expected answer? Get in touch with us.",
-                          size: 15,
-                          weight: FontWeight.w400),
-                    ),
 
+
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+
+                  title: Wrap(
+                    children: [
+                      Text(
+                        "13. Couldn\'t find the expected answer? ",
+                        style: TextStyle( fontSize: 15,
+                          color: AppColor.blackColor,
+                          fontWeight: FontWeight.w400,),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            varibale.questionThirteen = true;
+                            varibale.questionTwo = false;
+                            varibale.questionThree = false;
+                            varibale.questionFour = false;
+                            varibale.questionFive = false;
+                            varibale.questionSix = false;
+                            varibale.questionSeven = false;
+                            varibale.questionEight = false;
+                            varibale.questionNine = false;
+                            varibale.questionTen = false;
+                            varibale.questionEleven = false;
+                            varibale.questionTwelve = false;
+                            varibale.questionOne = false;
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ContactPage()));
+                          });
+                        },
+                        child: Text(
+                          "Get in touch with us.",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xff6849FF),
+                              fontWeight: FontWeight.w400,
+                          ),
+
+                        ),
+                      ),
+                    ],
+
+                  ),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
               ],
             ),

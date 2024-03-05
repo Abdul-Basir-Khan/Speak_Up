@@ -1,5 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:speakup/screen/dialog/voice_dialog.dart';
 import '../../themes/color.dart';
 import '../../wedgits/reusable_text.dart';
 import '../conversation_screen.dart';
@@ -14,8 +15,8 @@ class chooseTutorPage extends StatefulWidget {
 class _chooseTutorPageState extends State<chooseTutorPage> {
   bool _isBlurOne = false;
   bool _isBlur = false;
-  String? selectOption;
-  String? selectOptionOne;
+  String? selectOptionT;
+  String? selectOptionOneT;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -123,94 +124,100 @@ class _chooseTutorPageState extends State<chooseTutorPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                            height: 50,
-                            width: MediaQuery.sizeOf(context).width * 0.43,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: AppColor.blackColor,
-                                  width: 1.0,
-                                ),
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(20))),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                              child: DropdownButton(
-                                onTap: () {
-                                  setState(() {
-                                    _isBlurOne =!_isBlurOne;
-                                    _isBlur = false;
-                                  });
-                                },
-                                underline: Container(),
-                                hint: const ReusableText(
-                                  title: "Choose Voice",
-                                  weight: FontWeight.w500,
-                                  size: 14,
-                                  color: AppColor.hintIconColor,
-                                ),
-                                value: selectOptionOne,
-                                items: <String>[
-                                  'Voice One',
-                                  'Voice Two',
-                                  'Voice Three',
-                                  'Voice Four'
-                                ].map<DropdownMenuItem<String>>(
-                                        (String valueOne) {
-                                      return DropdownMenuItem<String>(
-                                        value: valueOne,
-                                        child: Text(
-                                          valueOne,
-                                          style: const TextStyle(
-                                            color: AppColor.hintIconColor,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      );
-                                    }).toList(),
-                                onChanged: (String? newValueOne) {
-                                  setState(() {
-                                    selectOptionOne = newValueOne!;
-                                  });
-                                },
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.43,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: AppColor.blackColor,
+                              width: 1.0,
+                            ),
+                            borderRadius: const BorderRadius.all(Radius.circular(20)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: DropdownButton<String>(
+                              onTap: () {
+                                setState(() {
+                                  _isBlurOne = !_isBlurOne;
+                                  _isBlur = false;
+                                });
+                              },
+                              underline: Container(),
+                              hint: const ReusableText(
+                                title: "Choose Voice",
+                                weight: FontWeight.w500,
+                                size: 14,
+                                color: AppColor.hintIconColor,
                               ),
-                            )),
+                              value: selectOptionOneT,
+                              items: <String>[
+                                'Voice One',
+                                'Voice Two',
+                                'Voice Three',
+                                'Voice Four',
+                              ].map<DropdownMenuItem<String>>(
+                                    (String valueOne) {
+                                  return DropdownMenuItem<String>(
+                                    value: valueOne,
+                                    child: Text(
+                                      valueOne,
+                                      style: const TextStyle(
+                                        color: AppColor.hintIconColor,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                              onChanged: (String? newValueOne) {
+                                setState(() {
+                                  if (selectOptionT != null) {
+                                    selectOptionT = null;
+                                  }
+                                  selectOptionOneT = newValueOne!;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
                         const SizedBox(
                           width: 10,
                         ),
                         Container(
-                            height: 50,
-                            width: MediaQuery.sizeOf(context).width * 0.43,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: AppColor.blackColor,
-                                  width: 1.0,
-                                ),
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(20))),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                              child: DropdownButton(
-                                onTap: () {
-                                  setState(() {
-                                    _isBlur =!_isBlur;
-                                    _isBlurOne = false;
-                                  });
-                                },
-                                underline: Container(),
-                                hint: const ReusableText(
-                                  title: "Choose Voice",
-                                  weight: FontWeight.w500,
-                                  size: 14,
-                                  color: AppColor.hintIconColor,
-                                ),
-                                value: selectOption,
-                                items: <String>[
-                                  'Voice One',
-                                  'Voice Two',
-                                  'Voice Three',
-                                  'Voice Four'
-                                ].map<DropdownMenuItem<String>>((String value) {
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.43,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: AppColor.blackColor,
+                              width: 1.0,
+                            ),
+                            borderRadius: const BorderRadius.all(Radius.circular(20)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: DropdownButton<String>(
+                              onTap: () {
+                                setState(() {
+                                  _isBlur = !_isBlur;
+                                  _isBlurOne = false;
+                                });
+                              },
+                              underline: Container(),
+                              hint: const ReusableText(
+                                title: "Choose Voice",
+                                weight: FontWeight.w500,
+                                size: 14,
+                                color: AppColor.hintIconColor,
+                              ),
+                              value: selectOptionT,
+                              items: <String>[
+                                'Voice One',
+                                'Voice Two',
+                                'Voice Three',
+                                'Voice Four',
+                              ].map<DropdownMenuItem<String>>(
+                                    (String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
                                     child: Text(
@@ -222,20 +229,21 @@ class _chooseTutorPageState extends State<chooseTutorPage> {
                                       ),
                                     ),
                                   );
-                                }).toList(),
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    selectOption = newValue!;
-                                  });
                                 },
-                              ),
-                            )),
+                              ).toList(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  if (selectOptionOneT != null) {
+                                    selectOptionOneT = null;
+                                  }
+                                  selectOptionT = newValue!;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-
-
-
-
 
                   ],
                 ),
@@ -245,14 +253,24 @@ class _chooseTutorPageState extends State<chooseTutorPage> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: GestureDetector(
                 onTap: () {
-                  if (_formKey.currentState!.validate()) {
+                  if (_formKey.currentState!.validate() && (selectOptionOneT != null || selectOptionT != null)) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                        const ConversationScreen(),
+                        builder: (BuildContext context) => const ConversationScreen(),
                       ),
                     );
+                  } else {
+                    // Check if the textField is empty
+                    if (_formKey.currentState!.validate()) {
+                      // If the textField is not empty, show dialog for not selecting voice
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return VoiceDialog(); // Assuming VoiceDialog is a custom dialog widget
+                        },
+                      );
+                    }
                   }
                 },
                 child: Container(

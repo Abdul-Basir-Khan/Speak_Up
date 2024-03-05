@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:speakup/screen/auth/verifyEmail_page.dart';
 import '../../../wedgits/reusable_text.dart';
 import '../../themes/color.dart';
-import 'addProfile_page.dart';
 
 class setPasswordPage extends StatefulWidget {
   const setPasswordPage({Key? key}) : super(key: key);
@@ -31,128 +30,126 @@ class _setPasswordPageState extends State<setPasswordPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 30,
-              ),
-              const ReusableText(
-                  title: 'SET YOUR PASSWORD',
-                  color: Color(0xFF000000),
-                  size: 24,
-                  weight: FontWeight.w700),
-              const SizedBox(
-                height: 15,
-              ),
-              const ReusableText(
-                  title: 'Kindly enter and confirm your password to continue',
-                  color: Color(0xFF000000),
-                  size: 16,
-                  weight: FontWeight.w400),
-              const SizedBox(
-                height: 20,
-              ),
-             Form(
-                 key: _formKey,
-                 child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+          Expanded(child: ListView(children: [
+            const SizedBox(
+              height: 30,
+            ),
+            const ReusableText(
+                title: 'SET YOUR PASSWORD',
+                color: Color(0xFF000000),
+                size: 24,
+                weight: FontWeight.w700),
+            const SizedBox(
+              height: 15,
+            ),
+            const ReusableText(
+                title: 'Kindly enter and confirm your password to continue',
+                color: Color(0xFF000000),
+                size: 16,
+                weight: FontWeight.w400),
+            const SizedBox(
+              height: 20,
+            ),
+            Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                                  TextFormField(
-                                    controller: passwordController,
-                                    obscureText: pass,
+                    TextFormField(
+                      controller: passwordController,
+                      obscureText: pass,
 
-                                    decoration:  InputDecoration(
-                                        filled: true,fillColor: AppColor.whiteColor,
-                                        hintText:  "Password",
-                                        suffixIcon:   InkWell(
-                                          onTap: (){
-                                            setState(() {
-                                              pass = !pass;
-                                            });
-                                          },
-                                          child: Icon(
-                                            pass ?Icons.visibility_off: Icons.visibility ,
-                                            color: AppColor.blackColor,
-                                          ),
-                                        ),
+                      decoration:  InputDecoration(
+                          filled: true,fillColor: AppColor.whiteColor,
+                          hintText:  "Password",
+                          suffixIcon:   InkWell(
+                            onTap: (){
+                              setState(() {
+                                pass = !pass;
+                              });
+                            },
+                            child: Icon(
+                              pass ?Icons.visibility_off: Icons.visibility ,
+                              color: AppColor.blackColor,
+                            ),
+                          ),
 
-                                        hintStyle: const TextStyle(
-                                            color: AppColor.hintIconColor,
-                                            fontWeight: FontWeight.w400),
-                                        border:OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(20),
-                                            borderSide: BorderSide.none
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(20),
-                                            borderSide: BorderSide.none
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(20),
-                                            borderSide: BorderSide.none
-                                        )
-                                    ),
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'This Field Is Required';
-                                      }
-                                      return null; // Return null for no validation errors
-                                    },
-                                  ),
-
-
-                                const SizedBox(
-                 height: 10,
-                                ),
-
-                                  TextFormField(
-                                    controller: confirmPasswordController,
-                                    obscureText: passOne,
-
-                                    decoration:  InputDecoration(
-                                        filled: true,fillColor: AppColor.whiteColor,
-                                        hintText:  " Confirm Password",
-                                        suffixIcon:   InkWell(
-                                          onTap: (){
-                                            setState(() {
-                                              passOne = !passOne;
-                                            });
-                                          },
-                                          child: Icon(
-                                            passOne ?Icons.visibility_off: Icons.visibility ,
-                                            color: AppColor.blackColor,
-                                          ),
-                                        ),
-
-                                        hintStyle: const TextStyle(
-                                            color: AppColor.hintIconColor,
-                                            fontWeight: FontWeight.w400),
-                                        border:OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(20),
-                                            borderSide: BorderSide.none
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(20),
-                                            borderSide: BorderSide.none
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(20),
-                                            borderSide: BorderSide.none
-                                        )
-                                    ),
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'This Field Is Required';
-                                      }
-                                      return null; // Return null for no validation errors
-                                    },
-                                  ),
-                              ],)),
+                          hintStyle: const TextStyle(
+                              color: AppColor.hintIconColor,
+                              fontWeight: FontWeight.w400),
+                          border:OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          )
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'This Field Is Required';
+                        }
+                        return null; // Return null for no validation errors
+                      },
+                    ),
 
 
-              const Expanded(
-                  child: SizedBox(
-                    height: 5,
-                  )),
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    TextFormField(
+                      controller: confirmPasswordController,
+                      obscureText: passOne,
+
+                      decoration:  InputDecoration(
+                          filled: true,fillColor: AppColor.whiteColor,
+                          hintText:  " Confirm Password",
+                          suffixIcon:   InkWell(
+                            onTap: (){
+                              setState(() {
+                                passOne = !passOne;
+                              });
+                            },
+                            child: Icon(
+                              passOne ?Icons.visibility_off: Icons.visibility ,
+                              color: AppColor.blackColor,
+                            ),
+                          ),
+
+                          hintStyle: const TextStyle(
+                              color: AppColor.hintIconColor,
+                              fontWeight: FontWeight.w400),
+                          border:OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          )
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'This Field Is Required';
+                        }
+                        return null; // Return null for no validation errors
+                      },
+                    ),
+                  ],)),
+
+
+          ],)),
 
               GestureDetector(
                 onTap: () {
@@ -188,7 +185,8 @@ class _setPasswordPageState extends State<setPasswordPage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 16),
                       ),
-                    )),
+                    ),
+                ),
               ),
               const SizedBox(
                 height: 30,
